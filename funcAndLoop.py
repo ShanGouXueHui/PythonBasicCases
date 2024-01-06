@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #if...elif...else模式演示
 #根据房子的价格，给出房子的等级
 
@@ -53,8 +54,8 @@ def calcCostByWorkingDyays(distance, workingDays, perKMCost = 5):
     #返回总费用
     return totalCost
 
-#为了标识执行代码的入口和避免文件被导入时被执行，我们可以将执行代码放入main函数中。
-if __name__ == '__main__':
+
+    
     #山狗办公室通勤距离20公里，一月上班22天
     distance = 20
     workingDays = 22
