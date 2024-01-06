@@ -71,7 +71,7 @@ logging 使用非常简单，使用 basicConfig() 方法就能满足基本的使
 '''
 
 #设置全局logging配置、以及日志格式
-logging.basicConfig(filename="run.log", 
+logging.basicConfig(filename="./PythonCases/run.log", 
                    filemode="w",                    
                    format="%(asctime)s %(name)s:%(levelname)s:%(message)s",
                    datefmt="%d-%M-%Y %H:%M:%S", 
