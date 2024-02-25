@@ -1,2 +1,1 @@
-# PythonCases
-Typical python algorithm samples
+# Python Basic Cases
