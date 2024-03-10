@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--title标签定义标题-->
+    <title>注册为新用户吧</title>
+</head>
+<body>
+    <!--div标识图层，将登录块隔离出来，方面集中控制格式，CSS margin(外边距)属性定义元素周围的空间。-->
+    <div style="margin:auto">
+        <!--标签主要确定目的地url和发送方法-->
+        <form action="/register/" method="post">
+            <!--python自带CSRF验证-->
+            {% csrf_token %}
+            <!--显示提示信息，与return render(request, 'register.html', {'message': message})中message相应-->
+            {% if message %}
+                <p style="color:red"> {{ message }} </p>
+            {% endif %}
+
+            <!--p标签将各个输入框分行-->
+            <p>
+                <!--label标签为每个输入框提供一个前导提示-->
+                <label for="id_username">用户名：</label>
+                <!--input生成一个用户输入框，placeholder属性为输入框提供占位符，
+                    autofocus属性为用户名输入框自动聚焦，
+                    required表示该输入框必须填写, 与view中request.POST.get('username')对应-->
+                <input type="text" id="username" name="username" placeholder="用户名" autofocus required />
+            </p>
+            <p>
+                <!--passowrd类的input标签不会显示明文密码-->
+                <label for="password1">密 码：</label>
+                <!--与view中request.POST.get('password1')对应-->
+                <input type="password" id="passowrd1" placeholder="密码" name="password1" required >
+            </p>
+            <p>
+                <!--passowrd类的input标签不会显示明文密码-->
+                <label for="password2">密码验证：</label>
+                <!--与view中request.POST.get('password2')对应-->
+                <input type="password" id="passowrd2" placeholder="密码" name="password2" required >
+            </p>
+            <p>
+                <!--label标签为每个输入框提供一个前导提示-->
+                <label for="id_gender">性  别：</label>
+                <!--input生成一个用户输入框，placeholder属性为输入框提供占位符与view中request.POST.get('gender')对应-->
+                <input type="text" id="gender" name="gender" placeholder="性别"/>
+            </p>
+            <p>
+                <!--label标签为每个输入框提供一个前导提示-->
+                <label for="id_mobile">手机号码：</label>
+                <!--input生成一个用户输入框，placeholder属性为输入框提供占位符与request.POST.get('mobile')对应-->
+                <input type="text" id="mobile" name="mobile" placeholder="手机号码"/>
+            </p>
+            <input type="submit" value="注册">      
+            <a href="/"  ><ins>直接登录</ins></a>    
+        </form>
+    </div>
+</body>
+</html>

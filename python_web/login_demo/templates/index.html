@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--title标签定义标题-->
+    <title>您已成功登录</title>
+</head>
+<body>
+    <!--div标识图层，将登录块隔离出来，方面集中控制格式，CSS margin(外边距)属性定义元素周围的空间。-->
+    <div style="margin:auto">
+        <!--python自带CSRF验证-->
+        {% csrf_token %}
+        <!--标签主要确定目的地url和发送方法-->
+        <form action="/index/" method="post">            
+            <p style="color:blue">您已成功登录</p>
+            
+        </form>
+    </div>
+</body>
+</html>

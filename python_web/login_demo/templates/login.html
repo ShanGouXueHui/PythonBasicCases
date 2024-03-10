@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--title标签定义标题-->
+    <title>登录</title>
+</head>
+<body>
+    <!--div标识图层，将登录块隔离出来，方面集中控制格式，CSS margin(外边距)属性定义元素周围的空间。-->
+    <div style="margin:auto">
+        <!--h1标签定义标题-->
+        <h1>欢迎登录！</h1>
+        <!--标签主要确定目的地url和发送方法-->
+        <form action="/" method="post">
+            <!--python自带CSRF验证-->
+            {% csrf_token %}
+            <!--显示提示信息，与return render(request, 'register.html', {'message': message})中message相应-->
+            {% if message %}
+                <p style="color:red"> {{ message }} </p>
+            {% endif %}
+
+            <!--p标签将各个输入框分行-->
+            <p>
+                <!--label标签为每个输入框提供一个前导提示-->
+                <label for="username_desc">用户名：</label>
+                <!--input生成一个用户输入框，placeholder属性为输入框提供占位符，
+                    autofocus属性为用户名输入框自动聚焦，
+                    required表示该输入框必须填写, 与view中request.POST.get('username')对应-->
+                <input type="text" id="username" name="username" placeholder="用户名" autofocus required />
+            </p>
+            <p>
+                <!--passowrd类的input标签不会显示明文密码-->
+                <label for="id_password">密码：</label>
+                <!--与view中request.POST.get('password')对应-->
+                <input type="password" id="passowrd" placeholder="密码" name="password" required >
+            </p>
+            <input type="submit" value="登录">
+            <!--新用户注册，可以通过超级链接跳转至注册用户-->
+            <a href="/register/" ><ins>注册</ins></a>
+        </form>
+    </div>
+</body>
+</html>
